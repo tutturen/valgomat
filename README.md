@@ -33,7 +33,7 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 - Municipality (id, name, countyId)
 - Topic (id, name)
 - Statement (id, text, topicId)
-- StatementWeight (id, statementId, partyId)
+- StatementAgreement (id, statementId, partyId, weight)
 - StatementAnswer (id, statementWeight, importanceWeight,userId, statementId)
 
 ###Endpoints
