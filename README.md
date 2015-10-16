@@ -45,6 +45,17 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 ```
 **/api/statements**
 *Input: userId {int}, gender {1, 2}, ageGroup [1 - 8], lastParty [1 - 11], municipality: [1 - 428]*
+```json 
+  {
+    "userId": 15,
+    "gender": 2,
+    "ageGroup": 4,
+    "lastParty": 9,
+    "municipality": 208
+  }
+```
+
+*Output*
 ```json
   {
     "questions": [
@@ -66,23 +77,26 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 
 *Input: Svar og vekt for hvert besvarte spørsmål*
 ```json
-  [
-    {
-      "statement_id": 1,
-      "answer": 1,
-      "weight": 1
-    },
-    {
-      "statement_id": 1,
-      "answer": 5,
-      "weight": 2
-    },
-    {
-      "statement_id": 1,
-      "answer": 3,
-      "weight": 3
-    },
-  ]
+  {
+    "userId": 15,
+    "statements": [
+      {
+        "statement_id": 1,
+        "answer": 1,
+        "weight": 1
+      },
+      {
+        "statement_id": 1,
+        "answer": 5,
+        "weight": 2
+      },
+      {
+        "statement_id": 1,
+        "answer": 3,
+        "weight": 3
+      }
+    ]
+  }
 ```
 *Output*
 ```json
