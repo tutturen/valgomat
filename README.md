@@ -26,7 +26,7 @@ Etter å ha svart på alle spørsmålene, får man opp en graf som viser deg hvi
 ##Server
 Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 ###Modeller
-- User (id, gender, ageGroup, partyLastElection, county)
+- User (id, gender, ageGroup, partyLastElection, municipality)
 - AgeGroup (id, startAge, endAge)
 - Party (id, name, logo)
 - County (id, name)
