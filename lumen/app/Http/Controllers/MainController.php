@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Statement;
 
 class MainController extends Controller
 {
@@ -51,6 +52,18 @@ class MainController extends Controller
       if (!$user) {
         return self::error('Ugyldig bruker-id');
       }
+
+      // Save data to the user
+      $user->gender = $gender;
+      $user->ageGroup = $ageGroupId;
+      $user->partyLastElection = $lastPartyId;
+      $user->municipality = $municipality;
+      $user->save();
+
+      // Return all the questions with topic attached
+      $statements = Statement::with('topic')->get();
+
+      return response()->json(['statements' => $statements]);
 
     }
 
