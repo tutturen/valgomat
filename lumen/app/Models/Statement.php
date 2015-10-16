@@ -10,7 +10,7 @@ class Statement extends Model {
   * Reference to Topic model
   */
   public function topic() {
-    return $this->hasOne('App\Models\Topic', 'topicId');
+    return $this->belongsTo('App\Models\Topic', 'topicId');
   }
 
 }
