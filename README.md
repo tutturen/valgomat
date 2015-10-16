@@ -59,6 +59,53 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
   }
 ```
 
+**/api/result**
+
+*Input: Svar og vekt for hvert besvarte spørsmål*
+```json
+  [
+    {
+      "statement_id": 1,
+      "answer": 1,
+      "weight": 1
+    },
+    {
+      "statement_id": 1,
+      "answer": 5,
+      "weight": 2
+    },
+    {
+      "statement_id": 1,
+      "answer": 3,
+      "weight": 3
+    },
+  ]
+```
+*Output*
+```json
+  "winner": {
+    "name" : "Venstre",
+    "logo" : "/assets/logo/venstre.png"
+  },
+  "results": [
+    {
+      "name": "Venstre",
+      "logo": "/assets/logo/venstre.png",
+      "score": 61
+    },
+    {
+      "name": "Høyre",
+      "logo": "/assets/logo/hoyre.png",
+      "score": 45
+    },
+    {
+      "name": "Senterpartiet",
+      "logo": "/assets/logo/sp.png",
+      "score": 41
+    }
+  ]
+```
+
 ##Client
 Tatt utgangspunkt i React.js (https://facebook.github.io/react/) i Javascript.
 
