@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 class MainController extends Controller
 {
     public function start() {
-      // TODO: Create new user, return id
-      return response()->json(["userId" => 12]);
+      $user = new User;
+      $user->save();
+      return response()->json(["userId" => $user->id]);
     }
 
     public function getStatements() {
@@ -14,6 +16,6 @@ class MainController extends Controller
     }
 
     public function getResult() {
-      return response()->json("unimplemented" => true]);
+      return response()->json(["unimplemented" => true]);
     }
 }

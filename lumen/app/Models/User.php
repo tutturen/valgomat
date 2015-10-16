@@ -1,4 +1,4 @@
-<?php namespace App\Models\Game;
+<?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
