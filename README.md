@@ -35,3 +35,27 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 
 ##Client
 Tatt utgangspunkt i React.js (https://facebook.github.io/react/) i Javascript.
+
+###React Components
+Dette gir et grovt overblikk på hvilke React Components som det er behov for.
+- App
+  - TitleBar
+  - Content
+    - DemographicQuestion
+      - GenderQuestion
+        - GenderOption
+      - BulletpointQuestion
+        - BulletpointQuestionTitle
+        - Bulletpoint
+    - PoliticalQuestion
+      - PoliticalQuestionTitle
+      - QuestionAnswers
+        - QuestionAnswer
+      - ImportanceQuestion
+        - ImportanceAnswer
+    - ResultScreen
+      - ResultScreenInfo
+      - ResultGraph
+        - GraphOption
+
+
