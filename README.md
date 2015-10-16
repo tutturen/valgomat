@@ -3,12 +3,14 @@ Showcase for webdesign
 
 ##Beskrivelse
 Valgorama samler først inn demogragiske data, og stiller deretter en rekke politiske spørsmål.
+
 Hvert spørsmål har fem svar:
   - Helt enig
   - Litt enig
   - Nøytral
   - Litt uenig
   - Helt uenig
+
 Hvert svar skal også vektes:
   - Veldig viktig
   - Viktig
