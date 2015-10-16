@@ -59,7 +59,7 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 *Output*
 ```json
   {
-    "questions": [
+    "statements": [
     	{
     	  "id": 12,
     	  "text": "Alle subsidier til norsk petroleumsvirksomhet bør stoppes nå, og hele næringen bør avvikles innen 20 år.",
@@ -140,10 +140,10 @@ Dette gir et grovt overblikk på hvilke React Components som det er behov for.
       - BulletpointQuestion
         - BulletpointQuestionTitle
         - Bulletpoint
-    - PoliticalQuestion
-      - PoliticalQuestionTitle
-      - QuestionAnswers
-        - QuestionAnswer
+    - PoliticalStatement
+      - PoliticalStatementTitle
+      - StatementAnswers
+        - StatementAnswer
       - ImportanceQuestion
         - ImportanceAnswer
     - ResultScreen
