@@ -15,6 +15,7 @@ Hvert svar skal også vektes:
   - Veldig viktig
   - Viktig
   - Ikke viktig
+
 Etter å ha svart på alle spørsmålene, får man opp en graf som viser deg hvilket politisk parti som passer deg best.
 
 ##Krav
