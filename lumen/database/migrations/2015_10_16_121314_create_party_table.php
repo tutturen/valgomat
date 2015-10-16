@@ -12,7 +12,7 @@ class CreatePartyTable extends Migration
      */
     public function up()
     {
-        Schema::create('party', function (Blueprint $table) {
+        Schema::create('parties', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('logo');
@@ -27,6 +27,6 @@ class CreatePartyTable extends Migration
      */
     public function down()
     {
-        Schema::drop('party');
+        Schema::drop('parties');
     }
 }

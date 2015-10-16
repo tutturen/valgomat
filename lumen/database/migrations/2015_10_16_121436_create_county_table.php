@@ -12,7 +12,7 @@ class CreateCountyTable extends Migration
      */
     public function up()
     {
-        Schema::create('county', function (Blueprint $table) {
+        Schema::create('counties', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -26,6 +26,6 @@ class CreateCountyTable extends Migration
      */
     public function down()
     {
-        Schema::drop('county');
+        Schema::drop('counties');
     }
 }

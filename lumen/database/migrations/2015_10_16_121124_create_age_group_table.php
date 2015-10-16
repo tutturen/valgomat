@@ -12,7 +12,7 @@ class CreateAgeGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('age_group', function (Blueprint $table) {
+        Schema::create('age_groups', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('startAge');
             $table->integer('endAge');
@@ -27,6 +27,6 @@ class CreateAgeGroupTable extends Migration
      */
     public function down()
     {
-        Schema::drop('age_group');
+        Schema::drop('age_groups');
     }
 }
