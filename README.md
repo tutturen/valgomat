@@ -29,9 +29,35 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 - County (id, name)
 - Municipality (id, name, countyId)
 - Topic (id, name)
-- Question (id, text, topicId)
-- QuestionWeight (id, questionId, partyId)
-- QuestionAnswer (id, answerWeight, importanceWeight,userId, questionId)
+- Statement (id, text, topicId)
+- StatementWeight (id, statementId, partyId)
+- StatementAnswer (id, statementWeight, importanceWeight,userId, statementId)
+
+###Endpoints
+**/api/start**
+```json
+  {
+    userId: 15
+  }
+```
+**/api/statements**
+*Input: gender {1, 2}, ageGroup [1 - 8], lastParty [1 - 11], municipality: [1 - 428]
+```json
+  {
+    "questions": [
+    	{
+    	  "id": 12,
+    	  "text": "Alle subsidier til norsk petroleumsvirksomhet bør stoppes nå, og hele næringen bør avvikles innen 20 år.",
+    	  "category": "Økonomi"
+    	},
+    	{
+    	  "id": 13,
+    	  "text": "Lokalpolitikerne bør kunne bestemme mer over fordelene for el-biler.",
+    	  "category": "Miljø"
+    	}
+    ]
+  }
+```
 
 ##Client
 Tatt utgangspunkt i React.js (https://facebook.github.io/react/) i Javascript.
