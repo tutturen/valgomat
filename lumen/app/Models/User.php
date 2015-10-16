@@ -13,4 +13,11 @@ class User extends Model {
     return $this->hasOne('App\Models\Municipality', 'municipalityId');
   }
 
+  /**
+  * Reference to Statement
+  */
+  public function statementsAnswers() {
+    return $this->hasMany('App\Models\Statement', 'userId');
+  }
+
 }
