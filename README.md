@@ -83,27 +83,29 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 ```
 *Output*
 ```json
-  "winner": {
-    "name" : "Venstre",
-    "logo" : "/assets/logo/venstre.png"
-  },
-  "results": [
-    {
-      "name": "Venstre",
-      "logo": "/assets/logo/venstre.png",
-      "score": 61
+  {
+    "winner": {
+      "name" : "Venstre",
+      "logo" : "/assets/logo/venstre.png"
     },
-    {
-      "name": "Høyre",
-      "logo": "/assets/logo/hoyre.png",
-      "score": 45
-    },
-    {
-      "name": "Senterpartiet",
-      "logo": "/assets/logo/sp.png",
-      "score": 41
-    }
-  ]
+    "results": [
+      {
+        "name": "Venstre",
+        "logo": "/assets/logo/venstre.png",
+        "score": 61
+      },
+      {
+        "name": "Høyre",
+        "logo": "/assets/logo/hoyre.png",
+        "score": 45
+      },
+      {
+        "name": "Senterpartiet",
+        "logo": "/assets/logo/sp.png",
+        "score": 41
+      }
+    ]
+  }
 ```
 
 ##Client
