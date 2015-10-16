@@ -37,11 +37,11 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 **/api/start**
 ```json
   {
-    userId: 15
+    "userId": 15
   }
 ```
 **/api/statements**
-*Input: gender {1, 2}, ageGroup [1 - 8], lastParty [1 - 11], municipality: [1 - 428]
+*Input: gender {1, 2}, ageGroup [1 - 8], lastParty [1 - 11], municipality: [1 - 428]*
 ```json
   {
     "questions": [
