@@ -28,7 +28,7 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 ###Modeller
 - User (id, gender, ageGroup, partyLastElection, county)
 - AgeGroup (id, startAge, endAge)
-- Party (id, name)
+- Party (id, name, logo)
 - County (id, name)
 - Municipality (id, name, countyId)
 - Topic (id, name)
