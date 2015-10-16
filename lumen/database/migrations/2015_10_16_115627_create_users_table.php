@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
           $table->integer('ageGroup');
           $table->integer('partyLastElection');
           $table->integer('municipality');
+          $table->timestamps();
         });
     }
 
