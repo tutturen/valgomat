@@ -44,6 +44,7 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
   }
 ```
 **/api/statements**
+
 *Input: userId {int}, gender {1, 2}, ageGroup [1 - 8], lastParty [1 - 11], municipality: [1 - 428]*
 ```json 
   {
