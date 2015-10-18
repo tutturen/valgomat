@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Statement;
+use App\Models\StatementAnswer;
 
 class MainController extends Controller
 {
@@ -67,7 +68,46 @@ class MainController extends Controller
 
     }
 
-    public function getResult() {
+    public function getResult(Request $request) {
+      $userId =     (int) $request->input('userId');
+      $statements = $request->input('statements');
+
+      if ($userId < 1) {
+        return self::error('Mangler bruker-id');
+      }
+
+      $user = User::find($userId);
+      if (!$user) {
+        return self::error('Ugyldig bruker-id');
+      }
+
+      if (!is_array($statements)) {
+        return self:error('Ugyldig liste');
+      }
+
+      $statementsCount = Statement::count();
+
+      foreach ($statements as $statement) {
+        $id     = (int) $statement->statement_id;
+        $answer = (int) $statement->answer;
+        $weight = (int) $statement->weight;
+        if ($id < 1 || $id > $statementsCount || $answer < 1 || $answer > 5 || $weight < 1 || $weight > 3) {
+          continue;
+        }
+        
+        $statementAnswer = new StatementAnswer;
+        $statementAnswer->userId = $userId;
+        $statementAnswer->statementId = $id;
+        $statementAnswer->statementWeight = $answer;
+        $statementAnswer->importanceWeight = $weight;
+        $statementAnswer->save();
+
+        // Calculate the result
+      }
+
+
+
+
       return response()->json(["unimplemented" => true]);
     }
 
