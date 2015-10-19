@@ -19637,6 +19637,20 @@
 
 	var _TitleBarJsx2 = _interopRequireDefault(_TitleBarJsx);
 
+	var _ContentJsx = __webpack_require__(160);
+
+	var _ContentJsx2 = _interopRequireDefault(_ContentJsx);
+
+	var _demographicDemographicScreenJsx = __webpack_require__(161);
+
+	var _demographicDemographicScreenJsx2 = _interopRequireDefault(_demographicDemographicScreenJsx);
+
+	var PHASE = {
+	  'demograpic': 1,
+	  'political': 2,
+	  'result': 3
+	};
+
 	var App = (function (_React$Component) {
 	  _inherits(App, _React$Component);
 
@@ -19645,6 +19659,7 @@
 
 	    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
 	    this.state = {
+	      phase: PHASE.demograpic,
 	      currentCategoryName: 'Miljø og Ressurser',
 	      currentCategoryNumber: 3,
 	      categoryCount: 25
@@ -19652,8 +19667,36 @@
 	  }
 
 	  _createClass(App, [{
+	    key: 'renderDemographicScreen',
+	    value: function renderDemographicScreen() {
+	      var _this = this;
+
+	      return _react2['default'].createElement(_demographicDemographicScreenJsx2['default'], {
+	        onFinish: function () {
+	          return _this.setState({ phase: PHASE.political });
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'renderPoliticalScreen',
+	    value: function renderPoliticalScreen() {
+	      return "politiske utsagn";
+	    }
+	  }, {
+	    key: 'renderResultScreen',
+	    value: function renderResultScreen() {}
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var content = undefined;
+	      if (this.state.phase === PHASE.demograpic) {
+	        content = this.renderDemographicScreen();
+	      } else if (this.state.phase === PHASE.political) {
+	        content = this.renderPoliticalScreen();
+	      } else {
+	        content = this.renderResultScreen();
+	      }
+
 	      return _react2['default'].createElement(
 	        'div',
 	        { className: 'valgoramaContainer' },
@@ -19661,7 +19704,12 @@
 	          categoryName: this.state.currentCategoryName,
 	          categoryNumber: this.state.currentCategoryNumber,
 	          categoryCount: this.state.categoryCount
-	        })
+	        }),
+	        _react2['default'].createElement(
+	          _ContentJsx2['default'],
+	          null,
+	          content
+	        )
 	      );
 	    }
 	  }]);
@@ -19739,6 +19787,473 @@
 
 	exports["default"] = TitleBar;
 	module.exports = exports["default"];
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Content = (function (_React$Component) {
+	  _inherits(Content, _React$Component);
+
+	  function Content() {
+	    _classCallCheck(this, Content);
+
+	    _get(Object.getPrototypeOf(Content.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Content, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "content" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Content;
+	})(_react2["default"].Component);
+
+	Content.propTypes = {
+	  children: _react2["default"].PropTypes.array
+	};
+
+	exports["default"] = Content;
+	module.exports = exports["default"];
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x3, _x4, _x5) { var _again = true; _function: while (_again) { var object = _x3, property = _x4, receiver = _x5; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x3 = parent; _x4 = property; _x5 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _InfoScreenJsx = __webpack_require__(162);
+
+	var _InfoScreenJsx2 = _interopRequireDefault(_InfoScreenJsx);
+
+	var _GenderQuestionJsx = __webpack_require__(163);
+
+	var _GenderQuestionJsx2 = _interopRequireDefault(_GenderQuestionJsx);
+
+	var _BulletpointQuestionJsx = __webpack_require__(165);
+
+	var _BulletpointQuestionJsx2 = _interopRequireDefault(_BulletpointQuestionJsx);
+
+	var QUESTION = {
+	  ageGroup: 0,
+	  lastParty: 1,
+	  county: 2,
+	  municipality: 3
+	};
+
+	var DemographicScreen = (function (_React$Component) {
+	  _inherits(DemographicScreen, _React$Component);
+
+	  function DemographicScreen(props) {
+	    var _this = this;
+
+	    _classCallCheck(this, DemographicScreen);
+
+	    _get(Object.getPrototypeOf(DemographicScreen.prototype), 'constructor', this).call(this, props);
+	    this.state = {
+	      gender: 3,
+	      ageGroup: 0,
+	      lastParty: 0,
+	      county: 0,
+	      municipality: 0
+	    };
+	    this.questions = [{
+	      name: 'Alder:',
+	      alternatives: ['0 - 18', '19 - 25', '26 - 35', '36 - 45', '46 - 55', '56 - 65', '66 - 75', '76+']
+	    }, {
+	      name: 'Stemte ved forrige valg:',
+	      alternatives: ['Miløpartiet De Grønne', 'Rødt', 'Sosialistisk Venstreparti', 'Arbeiderpartiet', 'Senterpartiet', 'Kristelig Folkeparti', 'Venstre', 'Høyre', 'Fremskrittspartiet', 'Andre', 'Ingen']
+	    }, {
+	      name: 'Fylke:',
+	      alternatives: ['Akershus', 'Aust-Agder', 'Buskerud']
+	    }, { name: 'Kommune:',
+	      alternatives: function alternatives(county) {
+	        return _this.getMunicipalities(county);
+	      }
+	    }];
+	  }
+
+	  _createClass(DemographicScreen, [{
+	    key: 'getMunicipalities',
+	    value: function getMunicipalities(county) {
+	      var data = {
+	        1: ['Asker', 'Enebakk', 'Fet', 'Frogn', 'Nannestad', 'Nes', 'Nesodden', 'Ski', 'Sørum', 'Ås'],
+	        2: ['Arendal', 'Birkenes', 'Bygland', 'Bykle', 'Evje og Hornnes', 'Froland', 'Gjerstad', 'Grimstad'],
+	        3: ['Drammen', 'Flesberg', 'Gol', 'Hemsedal', 'Hol', 'Hole', 'Hurum', 'Kongsberg', 'Eiker', 'Nes']
+	      };
+	      return data[county];
+	    }
+	  }, {
+	    key: 'onAnswerSelect',
+	    value: function onAnswerSelect(index, value) {
+	      switch (index) {
+	        case QUESTION.ageGroup:
+	          this.setState({ ageGroup: value });
+	          break;
+	        case QUESTION.lastParty:
+	          this.setState({ lastParty: value });
+	          break;
+	        case QUESTION.county:
+	          this.setState({ county: value });
+	          break;
+	        case QUESTION.municipality:
+	          this.props.onFinish(this.state.gender, this.state.ageGroup, this.state.lastParty, value);
+	          break;
+	        default:
+	          break;
+	      }
+	    }
+	  }, {
+	    key: 'getQuestion',
+	    value: function getQuestion(index) {
+	      var _this2 = this;
+
+	      var alternativesIsFunction = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+	      var key = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
+
+	      var question = this.questions[index];
+	      var name = question.name;
+	      var alternatives = alternativesIsFunction ? question.alternatives(key) : question.alternatives;
+	      return _react2['default'].createElement(_BulletpointQuestionJsx2['default'], {
+	        index: index,
+	        name: name,
+	        alternatives: alternatives,
+	        onSelect: function (i, val) {
+	          return _this2.onAnswerSelect(i, val);
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      console.log(this.state);
+	      var itemShowing = undefined;
+	      if (this.state.gender === 0) {
+	        itemShowing = _react2['default'].createElement(_InfoScreenJsx2['default'], null);
+	      } else if (this.state.ageGroup === 0) {
+	        itemShowing = this.getQuestion(QUESTION.ageGroup);
+	      } else if (this.state.lastParty === 0) {
+	        itemShowing = this.getQuestion(QUESTION.lastParty);
+	      } else if (this.state.county === 0) {
+	        itemShowing = this.getQuestion(QUESTION.county);
+	      } else if (this.state.municipality === 0) {
+	        itemShowing = this.getQuestion(QUESTION.municipality, true, this.state.county);
+	      }
+	      return itemShowing;
+	    }
+	  }]);
+
+	  return DemographicScreen;
+	})(_react2['default'].Component);
+
+	DemographicScreen.propTypes = {
+	  onFinish: _react2['default'].PropTypes.func
+	};
+
+	exports['default'] = DemographicScreen;
+	module.exports = exports['default'];
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var InfoScreen = (function (_React$Component) {
+	  _inherits(InfoScreen, _React$Component);
+
+	  function InfoScreen() {
+	    _classCallCheck(this, InfoScreen);
+
+	    _get(Object.getPrototypeOf(InfoScreen.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(InfoScreen, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "infoScreen" },
+	        _react2["default"].createElement(
+	          "h1",
+	          null,
+	          "Valgorama"
+	        ),
+	        _react2["default"].createElement(
+	          "h2",
+	          null,
+	          "Hvilket parti passer for deg?"
+	        ),
+	        _react2["default"].createElement(
+	          "h3",
+	          null,
+	          "Velg kjønn for å starte testen"
+	        )
+	      );
+	    }
+	  }]);
+
+	  return InfoScreen;
+	})(_react2["default"].Component);
+
+	exports["default"] = InfoScreen;
+	module.exports = exports["default"];
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _BulletpointJsx = __webpack_require__(164);
+
+	var _BulletpointJsx2 = _interopRequireDefault(_BulletpointJsx);
+
+	var GenderQuestion = (function (_React$Component) {
+	  _inherits(GenderQuestion, _React$Component);
+
+	  function GenderQuestion() {
+	    _classCallCheck(this, GenderQuestion);
+
+	    _get(Object.getPrototypeOf(GenderQuestion.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(GenderQuestion, [{
+	    key: 'render',
+	    value: function render() {
+	      return 'gender question';
+	    }
+	  }]);
+
+	  return GenderQuestion;
+	})(_react2['default'].Component);
+
+	exports['default'] = GenderQuestion;
+	module.exports = exports['default'];
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Bulletpoint = (function (_React$Component) {
+	  _inherits(Bulletpoint, _React$Component);
+
+	  function Bulletpoint() {
+	    _classCallCheck(this, Bulletpoint);
+
+	    _get(Object.getPrototypeOf(Bulletpoint.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Bulletpoint, [{
+	    key: "render",
+	    value: function render() {
+	      var _this = this;
+
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "bulletpoint" },
+	        _react2["default"].createElement(
+	          "div",
+	          { className: "bulletpointName", onClick: function () {
+	              return _this.props.onClick();
+	            } },
+	          this.props.text
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Bulletpoint;
+	})(_react2["default"].Component);
+
+	Bulletpoint.propTypes = {
+	  text: _react2["default"].PropTypes.string,
+	  onClick: _react2["default"].PropTypes.func
+	};
+
+	exports["default"] = Bulletpoint;
+	module.exports = exports["default"];
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _BulletpointJsx = __webpack_require__(164);
+
+	var _BulletpointJsx2 = _interopRequireDefault(_BulletpointJsx);
+
+	var BulletpointQuestion = (function (_React$Component) {
+	  _inherits(BulletpointQuestion, _React$Component);
+
+	  function BulletpointQuestion() {
+	    _classCallCheck(this, BulletpointQuestion);
+
+	    _get(Object.getPrototypeOf(BulletpointQuestion.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(BulletpointQuestion, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this = this;
+
+	      var alternativeList = this.props.alternatives.map(function (alternative, index) {
+	        return _react2['default'].createElement(_BulletpointJsx2['default'], {
+	          key: index,
+	          text: alternative,
+	          onClick: function () {
+	            return _this.props.onSelect(_this.props.index, index + 1);
+	          }
+	        });
+	      });
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'bulletpointQuestion' },
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'questionName' },
+	          this.props.name
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'alternatives' },
+	          alternativeList
+	        )
+	      );
+	    }
+	  }]);
+
+	  return BulletpointQuestion;
+	})(_react2['default'].Component);
+
+	BulletpointQuestion.propTypes = {
+	  index: _react2['default'].PropTypes.number,
+	  name: _react2['default'].PropTypes.string,
+	  alternatives: _react2['default'].PropTypes.array,
+	  onSelect: _react2['default'].PropTypes.func
+	};
+
+	exports['default'] = BulletpointQuestion;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
