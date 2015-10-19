@@ -19633,13 +19633,22 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _TitleBarJsx = __webpack_require__(159);
+
+	var _TitleBarJsx2 = _interopRequireDefault(_TitleBarJsx);
+
 	var App = (function (_React$Component) {
 	  _inherits(App, _React$Component);
 
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+	    this.state = {
+	      currentCategoryName: 'Miljø og Ressurser',
+	      currentCategoryNumber: 3,
+	      categoryCount: 25
+	    };
 	  }
 
 	  _createClass(App, [{
@@ -19647,8 +19656,12 @@
 	    value: function render() {
 	      return _react2['default'].createElement(
 	        'div',
-	        null,
-	        'My app'
+	        { className: 'valgoramaContainer' },
+	        _react2['default'].createElement(_TitleBarJsx2['default'], {
+	          categoryName: this.state.currentCategoryName,
+	          categoryNumber: this.state.currentCategoryNumber,
+	          categoryCount: this.state.categoryCount
+	        })
 	      );
 	    }
 	  }]);
@@ -19658,6 +19671,74 @@
 
 	exports['default'] = App;
 	module.exports = exports['default'];
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(146);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var TitleBar = (function (_React$Component) {
+	  _inherits(TitleBar, _React$Component);
+
+	  function TitleBar() {
+	    _classCallCheck(this, TitleBar);
+
+	    _get(Object.getPrototypeOf(TitleBar.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(TitleBar, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "titleBar" },
+	        _react2["default"].createElement(
+	          "span",
+	          { className: "categoryCount" },
+	          this.props.categoryNumber,
+	          " av ",
+	          this.props.categoryCount
+	        ),
+	        _react2["default"].createElement(
+	          "span",
+	          { className: "categoryName" },
+	          " | ",
+	          this.props.categoryName
+	        )
+	      );
+	    }
+	  }]);
+
+	  return TitleBar;
+	})(_react2["default"].Component);
+
+	TitleBar.propTypes = {
+	  categoryName: _react2["default"].PropTypes.string,
+	  categoryCount: _react2["default"].PropTypes.number,
+	  categoryNumber: _react2["default"].PropTypes.number
+	};
+
+	exports["default"] = TitleBar;
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);
