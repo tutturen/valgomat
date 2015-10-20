@@ -5,10 +5,12 @@ class TitleBar extends React.Component {
   render() {
     return (
       <div className="titleBar">
-        <span className="categoryCount">
-          {this.props.categoryNumber} av {this.props.categoryCount}
-        </span>
-        <span className="categoryName"> | {this.props.categoryName}</span>
+        { this.props.categoryCount > 0 &&
+          <span className="categoryCount">
+            {this.props.categoryNumber} av {this.props.categoryCount} |
+          </span>
+        }
+        <span className="categoryName"> {this.props.categoryName}</span>
       </div>
     );
   }

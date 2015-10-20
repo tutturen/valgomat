@@ -1,0 +1,125 @@
+.container {
+  width: 100%;
+}
+
+.valgoramaContainer {
+  margin: auto;
+  margin-top: 20px;
+  width: 700px;
+  height: 400px;
+  border: 1px solid red;
+}
+
+.content {
+  width: 100%
+}
+
+.titleBar {
+  width: 100%;
+  height: 32px;
+  background-color: #D60000;
+  color: #ffffff;
+  line-height: 32px;
+}
+
+.categoryCount {
+  margin-left: 16px;
+}
+
+.categoryName {
+
+}
+
+.bulletpoint {
+  cursor: pointer;
+  width: 200px;
+  height: 24px;
+  border-radius: 3px;
+  background-color: #D60000;
+  line-height: 24px;
+  margin: 4px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.bulletpointQuestion {
+  padding-top: 16px;
+  width: 200px;
+  margin: auto;
+}
+
+.bulletpointQuestion .questionName {
+  font-weight: 400;
+  text-align: center;
+}
+
+.politicalStatement {
+  width: 100%;
+}
+
+.statementTitle > p {
+  text-align: center;
+  height: 100px;
+  padding-top: 16px;
+  font-size: 24px;
+}
+
+.statementAnswerList {
+  width: 520px;
+  margin: auto;
+}
+
+.statementAnswer {
+  cursor: pointer;
+  margin: 12px;
+  width: 80px;
+  height: 116px;
+  float: left;
+  opacity: 0.6;
+}
+
+.selected {
+  opacity: 1.0;
+  font-weight: 400;
+}
+
+.statementAnswer > img {
+  width: 80px;
+  height: 80px;
+}
+
+.statementAnswerText {
+  text-align: center;
+  line-height: 36px;
+}
+
+.statementAnswer:hover {
+  font-weight: 400;
+}
+
+.importanceQuestion {
+  width: 312px;
+  height: 200px;
+  margin: auto;
+}
+
+.importanceTitle {
+  text-align: center;
+}
+
+.importanceAnswerList {
+  width: 312px;
+}
+
+.importanceAnswer {
+  background-color: #D60000;
+  border-radius: 3px;
+  width: 96px;
+  height: 32px;
+  line-height: 32px;
+  color: #ffffff;
+  margin: 4px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+}
