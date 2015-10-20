@@ -6,7 +6,7 @@ import PoliticalStatement from './political/PoliticalStatement.jsx';
 import axios from 'axios';
 
 const PHASE = {
-  'demograpic': 1,
+  'demographic': 1,
   'political': 2,
   'result': 3,
 };
@@ -19,25 +19,20 @@ class App extends React.Component {
     super(props);
     this.state = {
       userId: 4,
-      phase: PHASE.political,
+      phase: PHASE.demographic,
       statementIndex: 0,
-      statements: [
-        {
-          id: 12,
-          text: 'Alle subsidier til norsk petroleumsvirksomhet bør stoppes nå, og hele næringen bør avvikles innen 20 år.',
-          category: 'Økonomi',
-        },
-        {
-          id: 13,
-          text: 'Lokalpolitikerne bør kunne bestemme mer over fordelene for el-biler.',
-          category: 'Miljø',
-        },
-      ],
+      statements: [],
       statementAnswers: [],
     };
   }
 
-  saveStatement(id, agreement, importance) {
+  componentDidMount() {
+    axios.get(API + '/start')
+    .then((res) => this.setState({ userId: res.data.userId }))
+    .catch((res) => console.log('Error starting: ', res));
+  }
+
+  savePoliticalData(id, agreement, importance) {
     const answer = {
       statement_id: id,
       answer: agreement,
@@ -66,11 +61,30 @@ class App extends React.Component {
     }
   }
 
+  saveDemographicData(gender, ageGroup, lastParty, municipality) {
+    console.log('Saving demographic data', gender, ageGroup, lastParty, municipality);
+    axios.post(API + '/statements', {
+      userId: this.state.userId,
+      gender: gender,
+      ageGroup: ageGroup,
+      lastParty: lastParty,
+      municipality: municipality,
+    })
+    .then((res) => {
+      console.log(res);
+      this.setState({
+        phase: PHASE.political,
+        statements: res.data.statements,
+      });
+    })
+    .catch((res) => console.log('Error: ', res));
+  }
+
   renderDemographicScreen() {
     return (
-    <DemographicScreen
-      onFinish={() => this.setState({ phase: PHASE.political })}
-    />
+      <DemographicScreen
+        onFinish={(gend, age, par, mun) => this.saveDemographicData(gend, age, par, mun)}
+      />
     );
   }
 
@@ -79,7 +93,7 @@ class App extends React.Component {
       <PoliticalStatement
         id={statement.id}
         statement={statement.text}
-        onSubmit={(id, agreement, importance) => this.saveStatement(id, agreement, importance)}
+        onSubmit={(id, agreement, importance) => this.savePoliticalData(id, agreement, importance)}
       />
     );
   }
@@ -93,12 +107,14 @@ class App extends React.Component {
     let currentCategoryName = '';
     let currentCategoryNumber = 0;
     let categoryCount = 0;
-    if (this.state.phase === PHASE.demograpic) {
+
+    if (this.state.phase === PHASE.demographic) {
       content = this.renderDemographicScreen();
+      currentCategoryName = 'Valgorama';
     } else if (this.state.phase === PHASE.political) {
       const currentStatement = this.state.statements[this.state.statementIndex];
       content = this.renderPoliticalScreen(currentStatement);
-      currentCategoryName = currentStatement.category;
+      currentCategoryName = currentStatement.topic.name;
       currentCategoryNumber = this.state.statementIndex + 1;
       categoryCount = this.state.statements.length;
     } else {

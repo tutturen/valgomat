@@ -15,7 +15,7 @@ class DemographicScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gender: 3,
+      gender: 2,
       ageGroup: 0,
       lastParty: 0,
       county: 0,

@@ -3,6 +3,8 @@ import StatementTitle from './StatementTitle.jsx';
 import StatementAnswers from './StatementAnswers.jsx';
 import ImportanceQuestion from './ImportanceQuestion.jsx';
 
+const ANSWER_NEUTRAL = 3;
+
 class PoliticalStatement extends React.Component {
 
   constructor(props) {
@@ -12,8 +14,16 @@ class PoliticalStatement extends React.Component {
     };
   }
 
-  submitAnswers(importance) {
-    this.props.onSubmit(this.props.id, this.state.answer, importance);
+  onAnswer(answer) {
+    if (answer === ANSWER_NEUTRAL) {
+      this.submitAnswers(1, answer);
+    } else {
+      this.setState({ answer: answer });
+    }
+  }
+
+  submitAnswers(importance, answer = this.state.answer) {
+    this.props.onSubmit(this.props.id, answer, importance);
     this.setState({ answer: 0 });
   }
 
@@ -21,7 +31,7 @@ class PoliticalStatement extends React.Component {
     return (
       <div className="politicalStatement">
         <StatementTitle text={this.props.statement} />
-        <StatementAnswers selected={this.state.answer} onAnswer={(answer) => this.setState({ answer: answer })} />
+        <StatementAnswers selected={this.state.answer} onAnswer={(answer) => this.onAnswer(answer)} />
         { this.state.answer > 0 && <ImportanceQuestion onAnswer={(importance) => this.submitAnswers(importance)} /> }
       </div>
     );
