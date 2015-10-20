@@ -19,9 +19,16 @@ Hvert svar skal også vektes:
 Etter å ha svart på alle spørsmålene, får man opp en graf som viser deg hvilket politisk parti som passer deg best.
 
 ##Krav
-- [ ] Må kunne ta høyde for høy samtidig trafikk
+- [x] Må kunne ta høyde for høy samtidig trafikk
 - [ ] Må fungere like bra på store og små skjermer
-- [ ] API'et må være generelt nok for flere platformer
+- [x] API'et må være generelt nok for flere platformer
+
+##Gjøreliste
+- [ ] Lage resultatskjerm
+- [ ] Lage resultgraf
+- [ ] Hente inn info om kjønn
+- [ ] Margin på tittel
+- [ ] CSS Transitions
 
 ##Server
 Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
