@@ -3,6 +3,7 @@ import TitleBar from './TitleBar.jsx';
 import Content from './Content.jsx';
 import DemographicScreen from './demographic/DemographicScreen.jsx';
 import PoliticalStatement from './political/PoliticalStatement.jsx';
+import ResultScreen from './result/ResultScreen.jsx';
 import axios from 'axios';
 
 const PHASE = {
@@ -62,7 +63,6 @@ class App extends React.Component {
   }
 
   saveDemographicData(gender, ageGroup, lastParty, municipality) {
-    console.log('Saving demographic data', gender, ageGroup, lastParty, municipality);
     axios.post(API + '/statements', {
       userId: this.state.userId,
       gender: gender,
@@ -71,7 +71,6 @@ class App extends React.Component {
       municipality: municipality,
     })
     .then((res) => {
-      console.log(res);
       this.setState({
         phase: PHASE.political,
         statements: res.data.statements,
@@ -99,7 +98,12 @@ class App extends React.Component {
   }
 
   renderResultScreen() {
-    return 'Resultat - Vinner: ' + this.state.winner.name;
+    return (
+      <ResultScreen
+        winner={this.state.winner}
+        results={this.state.results}
+      />
+    );
   }
 
   render() {
