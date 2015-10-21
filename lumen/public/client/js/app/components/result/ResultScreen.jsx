@@ -13,6 +13,7 @@ class ResultScreen extends React.Component {
         />
         <ResultGraph
           results={this.props.results}
+          maxScore={this.props.winner.score}
         />
       </div>
     );
