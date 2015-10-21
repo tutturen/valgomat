@@ -7,9 +7,9 @@ import ResultScreen from './result/ResultScreen.jsx';
 import axios from 'axios';
 
 const PHASE = {
-  'demographic': 1,
-  'political': 2,
-  'result': 3,
+  demographic: 1,
+  political: 2,
+  result: 3,
 };
 
 const API = 'http://localhost:8888/api/v1';

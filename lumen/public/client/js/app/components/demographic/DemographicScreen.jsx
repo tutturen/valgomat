@@ -15,7 +15,7 @@ class DemographicScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gender: 2,
+      gender: 0,
       ageGroup: 0,
       lastParty: 0,
       county: 0,
@@ -23,7 +23,7 @@ class DemographicScreen extends React.Component {
     };
     this.questions = [
       {
-        name: 'Alder:',
+        name: 'Hvor gammel er du?',
         alternatives: [
           '0 - 18',
           '19 - 25',
@@ -36,7 +36,7 @@ class DemographicScreen extends React.Component {
         ],
       },
       {
-        name: 'Stemte ved forrige valg:',
+        name: 'Hva stemte du ved forrige valg?',
         alternatives: [
           'Miløpartiet De Grønne',
           'Rødt',
@@ -52,14 +52,14 @@ class DemographicScreen extends React.Component {
         ],
       },
       {
-        name: 'Fylke:',
+        name: 'Hvilket fylke bor du i?',
         alternatives: [
           'Akershus',
           'Aust-Agder',
           'Buskerud',
         ],
       },
-      { name: 'Kommune:',
+      { name: 'Hvilken kommune bor du i?',
         alternatives: (county) => this.getMunicipalities(county),
       },
 
@@ -114,11 +114,17 @@ class DemographicScreen extends React.Component {
     );
   }
 
+  handleGenderSelect(nr) {
+    if (nr === 1 || nr === 2) {
+      this.setState({ gender: nr });
+    }
+  }
+
   render() {
     console.log(this.state);
     let itemShowing;
     if (this.state.gender === 0) {
-      itemShowing = <InfoScreen />;
+      itemShowing = <InfoScreen onGenderSelect={(nr) => this.handleGenderSelect(nr)} />;
     } else if (this.state.ageGroup === 0) {
       itemShowing = this.getQuestion(QUESTION.ageGroup);
     } else if (this.state.lastParty === 0) {

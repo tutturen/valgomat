@@ -12,7 +12,7 @@ class Content extends React.Component {
 }
 
 Content.propTypes = {
-  children: React.PropTypes.array,
+  children: React.PropTypes.object,
 };
 
 export default Content;
