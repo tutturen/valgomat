@@ -8,7 +8,7 @@ class Result extends React.Component {
     };
     return (
       <div className="result">
-        <div className="resultBlock" style={style}>{this.props.score}</div>
+        <div className="resultBlock" style={style}></div>
         <img src={this.props.logo} alt={this.props.name} />
       </div>
     );

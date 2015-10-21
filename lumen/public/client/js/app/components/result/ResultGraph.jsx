@@ -9,7 +9,7 @@ class ResultGraph extends React.Component {
         key={result.name}
         name={result.name}
         logo={result.logo}
-        score={result.score}
+        score={result.score > 0 ? (result.score / this.props.maxScore) * 100 : 0}
       />
     );
 
@@ -23,6 +23,7 @@ class ResultGraph extends React.Component {
 
 ResultGraph.propTypes = {
   results: React.PropTypes.array,
+  maxScore: React.PropTypes.number,
 };
 
 export default ResultGraph;
