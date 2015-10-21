@@ -115,8 +115,9 @@ class MainController extends Controller
       return self::error('Ugyldig bruker-id');
     }
 
+    // Get all parties except "Andre"
+    $parties = Party::where('id', '!=', 10)->get();
     $statementAnswers = StatementAnswer::where('userId', $userId)->get();
-    $parties = Party::all();
     $statementAgreements = StatementAgreement::all();
 
     $partyScores = [];
