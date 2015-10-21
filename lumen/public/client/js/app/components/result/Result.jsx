@@ -5,6 +5,7 @@ class Result extends React.Component {
   render() {
     const style = {
       height: this.props.score,
+      width: this.props.score,
     };
     return (
       <div className="result">
