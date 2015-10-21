@@ -151,6 +151,10 @@ class MainController extends Controller
       }
     }
 
+    usort($resultList, function($a, $b) {
+      return $b['score'] - $a['score'];
+    });
+
     $result = [
       'winner'  => $winner,
       'results' => $resultList
