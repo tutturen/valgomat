@@ -20,6 +20,42 @@ Hvert svar skal også vektes:
 
 Etter å ha svart på alle spørsmålene, får man opp en graf som viser deg hvilket politisk parti som passer deg best.
 
+##Installasjon
+```console
+  git clone https://github.com/tutturen/valgorama.git
+  cd valgorama/lumen
+  composer install
+```
+
+Lag så en .env fil i root av ./lumen med noe a la dette:
+
+```
+  APP_ENV=local
+  APP_DEBUG=false
+  APP_KEY=[INSERT_APP_KEY]
+
+  APP_LOCALE=en
+  APP_FALLBACK_LOCALE=en
+
+  DB_CONNECTION=[INSERT_CONNECTION]
+  DB_PORT=[INSERT_PORT]
+  DB_HOST=localhost
+  DB_DATABASE=[INSERT_DATABASE]
+  DB_USERNAME=[INSERT_USERNAME]
+  DB_PASSWORD=[INSERT_PASSWORD]
+
+  CACHE_DRIVER=memcached
+  SESSION_DRIVER=memcached
+  QUEUE_DRIVER=database
+```
+
+```console
+  php artisan migrate:refresh --seed
+```
+
+Start din setup (Apache o.l.), og du er i gang.
+
+
 ##Krav
 - [x] Må kunne ta høyde for høy samtidig trafikk
 - [x] Må fungere like bra på store og små skjermer
