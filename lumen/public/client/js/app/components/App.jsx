@@ -12,7 +12,7 @@ const PHASE = {
   result: 3,
 };
 
-const API = 'http://localhost:8888/api/v1';
+const API = '/api/v1';
 
 class App extends React.Component {
 

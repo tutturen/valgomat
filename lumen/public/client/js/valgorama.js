@@ -19663,7 +19663,7 @@
 	  result: 3
 	};
 
-	var API = 'http://localhost:8888/api/v1';
+	var API = '/api/v1';
 
 	var App = (function (_React$Component) {
 	  _inherits(App, _React$Component);
