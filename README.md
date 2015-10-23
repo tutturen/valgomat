@@ -50,7 +50,7 @@ Lag så en .env fil i root av ./lumen med noe a la dette:
 ```
 
 ```console
-  php artisan migrate:refresh --seed
+  php artisan migrate --seed
 ```
 
 Start din setup (Apache o.l.), og du er i gang.
