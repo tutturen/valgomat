@@ -1,5 +1,5 @@
 # valgorama
-Showcase for webdesign
+En liten sak som hinter til hvilket parti du burde stemme på
 
 ##Beskrivelse
 Valgorama samler først inn demogragiske data, og stiller deretter en rekke politiske spørsmål.
