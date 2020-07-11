@@ -1,7 +1,7 @@
 # valgorama
-En liten sak som hinter til hvilket parti du burde stemme på
+En liten sak som hinter til hvilket parti du burde stemme på. Denne ble laget i forbindelse med en intervjuprosess i Dagbladet i 2015. Det ble anbefalt å bruke PHP.
 
-##Beskrivelse
+## Beskrivelse
 Valgorama samler først inn demogragiske data, og stiller deretter en rekke politiske spørsmål.
 
 Hvert spørsmål har fem svar:
@@ -20,7 +20,7 @@ Hvert svar skal også vektes:
 
 Etter å ha svart på alle spørsmålene, får man opp en graf som viser deg hvilket politisk parti som passer deg best.
 
-##Installasjon
+## Installasjon
 ```console
   git clone https://github.com/tutturen/valgorama.git
   cd valgorama/lumen
@@ -56,15 +56,15 @@ Lag så en .env fil i root av ./lumen med noe a la dette:
 Start din setup (Apache o.l.), og du er i gang.
 
 
-##Krav
+## Krav
 - [x] Må kunne ta høyde for høy samtidig trafikk
 - [x] Må fungere like bra på store og små skjermer
 - [x] API'et må være generelt nok for flere platformer
 
-##Server
+## Server
 Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 
-###Modeller
+### Modeller
 - User (id, gender, ageGroup, partyLastElection, municipality)
 - AgeGroup (id, startAge, endAge)
 - Party (id, name, logo)
@@ -75,7 +75,7 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
 - StatementAgreement (id, statementId, partyId, weight)
 - StatementAnswer (id, statementWeight, importanceWeight,userId, statementId)
 
-###Endpoints
+### Endpoints
 **/api/start**
 ```json
   {
@@ -165,10 +165,10 @@ Tatt utgangspunkt i Lumen (http://lumen.laravel.com/) i PHP.
   }
 ```
 
-##Client
+## Client
 Tatt utgangspunkt i React.js (https://facebook.github.io/react/) i Javascript.
 
-###React Components
+### React Components
 Dette gir et grovt overblikk på hvilke React Components som er inkludert:
 - App
   - TitleBar
